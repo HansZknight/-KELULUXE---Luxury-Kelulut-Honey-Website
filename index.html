@@ -1,0 +1,2746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KELULUXE | Premium Kelulut Honey - Nature's Liquid Gold</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-primary: #D4A574;
+            --gold-light: #E8C89E;
+            --gold-dark: #B8860B;
+            --gold-deep: #8B6914;
+            --amber: #FFBF00;
+            --honey: #EB9605;
+            --cream: #FFF8E7;
+            --cream-light: #FFFEF5;
+            --black: #0D0D0D;
+            --dark: #1A1A1A;
+            --gray-dark: #2D2D2D;
+            --gray: #6B6B6B;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--cream);
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.15s ease, background 0.15s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.08s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.active {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: rgba(212, 165, 116, 0.2);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .preloader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold-primary);
+            letter-spacing: 15px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .preloader-honey {
+            width: 60px;
+            height: 60px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .honey-drop {
+            position: absolute;
+            width: 20px;
+            height: 25px;
+            background: linear-gradient(135deg, var(--amber), var(--honey));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: drip 1.5s ease-in-out infinite;
+        }
+
+        .honey-drop:nth-child(1) { left: 0; animation-delay: 0s; }
+        .honey-drop:nth-child(2) { left: 20px; animation-delay: 0.3s; }
+        .honey-drop:nth-child(3) { left: 40px; animation-delay: 0.6s; }
+
+        @keyframes drip {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(20px) scale(0.8); opacity: 0.5; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s ease;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            padding: 15px 80px;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--amber));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(360deg);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: 4px;
+        }
+
+        .logo-text span {
+            color: var(--gold-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--amber));
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 12px 35px;
+            background: transparent;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-primary), var(--amber));
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-cta:hover {
+            color: var(--black);
+            border-color: var(--gold-primary);
+        }
+
+        .nav-cta:hover::before {
+            left: 0;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+        }
+
+        .honeycomb-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-34l28-16M28 32V0m0 32l-28-16' fill='none' stroke='%23D4A574' stroke-width='1'/%3E%3C/svg%3E");
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 50px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease 0.5s both;
+        }
+
+        .hero-badge i {
+            color: var(--amber);
+            animation: sparkle 2s ease infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-badge span {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .line span {
+            display: block;
+            transform: translateY(100%);
+            animation: slideUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .hero-title .line:nth-child(1) span { animation-delay: 0.8s; }
+        .hero-title .line:nth-child(2) span { animation-delay: 1s; }
+        .hero-title .line:nth-child(3) span { animation-delay: 1.2s; }
+
+        @keyframes slideUp {
+            to { transform: translateY(0); }
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--gold-primary), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--gray);
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease 1.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            animation: fadeInUp 1s ease 1.6s both;
+        }
+
+        .btn-primary {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            border: none;
+            color: var(--black);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--amber), var(--honey));
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-secondary {
+            padding: 18px 50px;
+            background: transparent;
+            border: 2px solid rgba(212, 165, 116, 0.5);
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-secondary i {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: var(--gold-primary);
+        }
+
+        .btn-secondary:hover i {
+            background: var(--gold-primary);
+            color: var(--black);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: fadeInUp 1s ease 2s both;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--gold-primary), transparent);
+            position: relative;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: var(--gold-primary);
+            animation: scrollAnim 2s ease infinite;
+        }
+
+        @keyframes scrollAnim {
+            0% { top: 0; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Marquee Section */
+        .marquee-section {
+            padding: 30px 0;
+            background: linear-gradient(90deg, var(--gold-primary), var(--amber), var(--gold-primary));
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: flex;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 80px;
+            padding: 0 40px;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            white-space: nowrap;
+        }
+
+        .marquee-item span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--black);
+            letter-spacing: 2px;
+        }
+
+        .marquee-item i {
+            color: var(--black);
+            font-size: 0.8rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 150px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-images {
+            position: relative;
+            height: 700px;
+        }
+
+        .about-img {
+            position: absolute;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.1);
+        }
+
+        .about-img-1 {
+            width: 350px;
+            height: 450px;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .about-img-2 {
+            width: 300px;
+            height: 380px;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .about-img-frame {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            border: 2px solid var(--gold-primary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .about-floating-text {
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: rotate(-90deg) translateX(50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: rgba(212, 165, 116, 0.05);
+            white-space: nowrap;
+            z-index: 0;
+        }
+
+        .about-content {
+            position: relative;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background: var(--gold-primary);
+        }
+
+        .section-label span {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .section-title .highlight {
+            color: var(--gold-primary);
+            font-style: italic;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+        }
+
+        .feature-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--cream);
+        }
+
+        .feature-content p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 150px 80px;
+            background: linear-gradient(180deg, var(--black) 0%, var(--dark) 50%, var(--black) 100%);
+            position: relative;
+        }
+
+        .products-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, rgba(45, 45, 45, 0.5), rgba(26, 26, 26, 0.5));
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 30px 60px rgba(212, 165, 116, 0.15);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--amber));
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+
+        .product-image {
+            width: 200px;
+            height: 280px;
+            margin: 0 auto 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-jar {
+            width: 120px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--amber), var(--honey), var(--gold-dark));
+            border-radius: 20px 20px 40px 40px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 -20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-jar {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        .product-jar::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 25px;
+            background: var(--gold-primary);
+            border-radius: 5px 5px 0 0;
+        }
+
+        .product-jar::after {
+            content: 'K';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.2);
+        }
+
+        .product-glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 191, 0, 0.3), transparent);
+            border-radius: 50%;
+            filter: blur(30px);
+            z-index: -1;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--cream);
+        }
+
+        .product-weight {
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 25px;
+        }
+
+        .product-price span {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .btn-cart {
+            width: 100%;
+            padding: 15px 30px;
+            background: transparent;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold-primary);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-cart:hover {
+            color: var(--black);
+        }
+
+        .btn-cart:hover::before {
+            left: 0;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 150px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 165, 116, 0.05), transparent);
+        }
+
+        .benefits-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefits-content {
+            position: relative;
+        }
+
+        .benefits-list {
+            margin-top: 50px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 30px;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .benefit-item:hover {
+            padding-left: 20px;
+        }
+
+        .benefit-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1;
+        }
+
+        .benefit-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--cream);
+            transition: color 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-content h4 {
+            color: var(--gold-primary);
+        }
+
+        .benefit-content p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .benefits-visual {
+            position: relative;
+            height: 700px;
+        }
+
+        .benefits-circle {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateCircle 30s linear infinite;
+        }
+
+        @keyframes rotateCircle {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .benefits-circle::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            top: -10px;
+            left: 50%;
+        }
+
+        .benefits-center {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(255, 191, 0, 0.05));
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid rgba(212, 165, 116, 0.3);
+        }
+
+        .benefits-center i {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+        }
+
+        .benefits-center h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--cream);
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .float-icon {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: floatIcon 4s ease-in-out infinite;
+        }
+
+        .float-icon i {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+        }
+
+        .float-icon:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .float-icon:nth-child(2) { top: 5%; right: 20%; animation-delay: 0.5s; }
+        .float-icon:nth-child(3) { bottom: 20%; left: 5%; animation-delay: 1s; }
+        .float-icon:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 1.5s; }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Process Section */
+        .process {
+            padding: 150px 80px;
+            background: var(--dark);
+            position: relative;
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 100px;
+        }
+
+        .process-timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-line {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(212, 165, 116, 0.2);
+        }
+
+        .process-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gold-primary);
+            transition: width 1s ease;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--dark);
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.5s ease;
+        }
+
+        .step-icon i {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            transition: all 0.5s ease;
+        }
+
+        .process-step:hover .step-icon {
+            background: var(--gold-primary);
+            transform: scale(1.1);
+        }
+
+        .process-step:hover .step-icon i {
+            color: var(--black);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 35px;
+            height: 35px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--cream);
+        }
+
+        .step-description {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 150px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .testimonials-slider {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 0 50px;
+        }
+
+        .testimonial-content {
+            background: linear-gradient(145deg, rgba(45, 45, 45, 0.5), rgba(26, 26, 26, 0.5));
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            padding: 60px 80px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .testimonial-author {
+            text-align: center;
+        }
+
+        .author-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 3px solid var(--gold-primary);
+            background: linear-gradient(135deg, var(--gold-primary), var(--amber));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image i {
+            font-size: 4rem;
+            color: var(--black);
+        }
+
+        .author-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 5px;
+        }
+
+        .author-title {
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-text {
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 5rem;
+            color: var(--gold-primary);
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin-bottom: -20px;
+        }
+
+        .testimonial-text p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--cream);
+            margin-bottom: 30px;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 10px;
+        }
+
+        .testimonial-rating i {
+            color: var(--amber);
+            font-size: 1.2rem;
+        }
+
+        .testimonials-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .nav-btn {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: 2px solid rgba(212, 165, 116, 0.3);
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--gold-primary);
+            color: var(--black);
+            border-color: var(--gold-primary);
+        }
+
+        .testimonials-dots {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(212, 165, 116, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--gold-primary);
+            transform: scale(1.3);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 120px 80px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-34l28-16M28 32V0m0 32l-28-16' fill='none' stroke='%23000000' stroke-width='1'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .newsletter-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 40px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 18px 30px;
+            background: var(--black);
+            border: none;
+            color: var(--cream);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--gray);
+        }
+
+        .newsletter-form button {
+            padding: 18px 40px;
+            background: var(--black);
+            border: none;
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--dark);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 100px 80px 40px;
+            background: var(--black);
+            border-top: 1px solid rgba(212, 165, 116, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto 80px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 25px;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 165, 116, 0.1);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold-primary);
+            color: var(--black);
+        }
+
+        .footer-column h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin-bottom: 30px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-column ul a:hover {
+            color: var(--gold-primary);
+            padding-left: 10px;
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .footer-contact li i {
+            color: var(--gold-primary);
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 165, 116, 0.1);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .footer-bottom a {
+            color: var(--gold-primary);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--gold-primary);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(212, 165, 116, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 4.5rem;
+            }
+
+            .about-container,
+            .benefits-container {
+                gap: 60px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 60px;
+            }
+
+            .process-line {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 20px 40px;
+            }
+
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about, .products, .benefits, .process, .testimonials {
+                padding: 100px 40px;
+            }
+
+            .about-container,
+            .benefits-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-images {
+                height: 500px;
+            }
+
+            .benefits-visual {
+                height: 500px;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .testimonial-content {
+                grid-template-columns: 1fr;
+                padding: 40px;
+            }
+
+            .testimonial-text p {
+                font-size: 1.4rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .about, .products, .benefits, .process, .testimonials {
+                padding: 80px 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .newsletter {
+                padding: 80px 20px;
+            }
+
+            .footer {
+                padding: 60px 20px 30px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            z-index: 1000;
+            transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-logo">KELULUXE</div>
+        <div class="preloader-honey">
+            <div class="honey-drop"></div>
+            <div class="honey-drop"></div>
+            <div class="honey-drop"></div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#about">Our Story</a>
+        <a href="#products">Products</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#process">Process</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">🐝</div>
+            <div class="logo-text">KELU<span>LUXE</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+        </ul>
+        <a href="https://api.whatsapp.com/send/?phone=6283826991386&text&type=phone_number&app_absent=0&utm_source=ig" class="nav-cta">Shop Now</a>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="honeycomb-pattern"></div>
+        <div class="floating-particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 0.5s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 3.5s;"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-award"></i>
+                <span>Premium Quality Since 2015</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="line"><span>Nature's Most</span></span>
+                <span class="line"><span><span class="highlight">Precious</span> Gift</span></span>
+                <span class="line"><span>Pure Kelulut Honey</span></span>
+            </h1>
+            <p class="hero-subtitle">
+                Experience the extraordinary healing power of stingless bee honey, 
+                handcrafted with centuries of Indonesia tradition
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">Explore Collection</a>
+                <a href="#about" class="btn-secondary">
+                    <i class="fas fa-play"></i>
+                    Our Story
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <div class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-content">
+                <div class="marquee-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>100% Natural</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>Premium Quality</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Health Benefits</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-flask"></i>
+                    <span>Lab Tested</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-globe-asia"></i>
+                    <span>Indonesia Heritage</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-award"></i>
+                    <span>Award Winning</span>
+                </div>
+            </div>
+            <div class="marquee-content">
+                <div class="marquee-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>100% Natural</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>Premium Quality</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Health Benefits</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-flask"></i>
+                    <span>Lab Tested</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-globe-asia"></i>
+                    <span>Malaysian Heritage</span>
+                </div>
+                <div class="marquee-item">
+                    <i class="fas fa-award"></i>
+                    <span>Award Winning</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-images">
+                <div class="about-img about-img-1 reveal">
+                    <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600" alt="Pure Honey">
+                </div>
+                <div class="about-img about-img-2 reveal">
+                    <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600" alt="Honeycomb">
+                </div>
+                <div class="about-img-frame"></div>
+                <div class="about-floating-text">HONEY</div>
+            </div>
+            <div class="about-content">
+                <div class="section-label reveal">
+                    <span>Our Heritage</span>
+                </div>
+                <h2 class="section-title reveal">
+                    The Art of <span class="highlight">Kelulut</span> Honey Harvesting
+                </h2>
+                <p class="about-text reveal">
+                    For generations, Indonesia beekeepers have treasured the stingless Kelulut bees 
+                    for their remarkable honey. At Keluluxe, we preserve these ancient traditions 
+                    while embracing modern quality standards to bring you the purest, most potent 
+                    honey nature can offer.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature reveal">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Rainforest Sourced</h4>
+                            <p>Harvested from pristine Indonesia tropical rainforests</p>
+                        </div>
+                    </div>
+                    <div class="about-feature reveal">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Ethically Harvested</h4>
+                            <p>Sustainable practices that protect our bee colonies</p>
+                        </div>
+                    </div>
+                    <div class="about-feature reveal">
+                        <div class="feature-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Lab Certified</h4>
+                            <p>Every batch tested for purity and potency</p>
+                        </div>
+                    </div>
+                    <div class="about-feature reveal">
+                        <div class="feature-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Premium Grade</h4>
+                            <p>Only the finest quality reaches our bottles</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats reveal">
+                    <div class="stat">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-label">Bee Colonies</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="10000">0</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="products-header">
+            <div class="section-label reveal">
+                <span>Our Collection</span>
+            </div>
+            <h2 class="section-title reveal">
+                Premium <span class="highlight">Honey</span> Selection
+            </h2>
+            <p class="about-text reveal">
+                Each jar contains the essence of thousands of flowers, carefully collected 
+                by our stingless bees and preserved in its purest form.
+            </p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal">
+                <div class="product-badge">Best Seller</div>
+                <div class="product-image">
+                    <div class="product-glow"></div>
+                    <div class="product-jar"></div>
+                </div>
+                <h3 class="product-name">Classic Gold Madu Kelulut/Trigona Asli Bangka</h3>
+                <p class="product-weight">100ml Premium bottles</p>
+                <p class="product-description">
+                    Our signature blend with rich, complex flavors and exceptional healing properties
+                </p>
+                <div class="product-price">
+                   Rp30.000 <span>/ bottles</span>
+                </div>
+                <button class="btn-cart">Add to Cart</button>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-badge">Standart</div>
+                <div class="product-image">
+                    <div class="product-glow"></div>
+                    <div class="product-jar" style="background: linear-gradient(135deg, #C9A050, #8B6914, #654321);"></div>
+                </div>
+                <h3 class="product-name">Royal Reserve Madu Kelulut/trigona Asli Bangka</h3>
+                <p class="product-weight">250ml Medium Edition</p>
+                <p class="product-description">
+                    Aged to perfection, our most exclusive honey with intense therapeutic benefits
+                </p>
+                <div class="product-price">
+                    Rp75.000 <span>/  bottles</span>
+                </div>
+                <button class="btn-cart">Add to Cart</button>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-badge">Limited</div>
+                <div class="product-image">
+                    <div class="product-glow"></div>
+                    <div class="product-jar" style="background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);"></div>
+                </div>
+                <h3 class="product-name">Wild Forest Madu Kelulut/trigona Asli Bangka</h3>
+                <p class="product-weight">500ml Special Batch</p>
+                <p class="product-description">
+                    Harvested from deep rainforest colonies with unique floral notes
+                </p>
+                <div class="product-price">
+                   Rp95.000 <span>/ bottles</span>
+                </div>
+                <button class="btn-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="benefits-bg"></div>
+        <div class="benefits-container">
+            <div class="benefits-content">
+                <div class="section-label reveal">
+                    <span>Health Benefits</span>
+                </div>
+                <h2 class="section-title reveal">
+                    The Power of <span class="highlight">Kelulut</span> Honey
+                </h2>
+                <p class="about-text reveal">
+                    Kelulut honey contains 10x more antioxidants than regular honey, making it 
+                    nature's most powerful healing superfood.
+                </p>
+                <div class="benefits-list">
+                    <div class="benefit-item reveal">
+                        <div class="benefit-number">01</div>
+                        <div class="benefit-content">
+                            <h4>Immune System Booster</h4>
+                            <p>Rich in propolis and natural antibiotics that strengthen your body's defenses against infections and diseases.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item reveal">
+                        <div class="benefit-number">02</div>
+                        <div class="benefit-content">
+                            <h4>Anti-Aging Properties</h4>
+                            <p>High antioxidant content helps fight free radicals, reducing signs of aging and promoting youthful skin.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item reveal">
+                        <div class="benefit-number">03</div>
+                        <div class="benefit-content">
+                            <h4>Digestive Health</h4>
+                            <p>Natural enzymes and prebiotics support gut health, improving digestion and nutrient absorption.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item reveal">
+                        <div class="benefit-number">04</div>
+                        <div class="benefit-content">
+                            <h4>Natural Energy Source</h4>
+                            <p>Complex natural sugars provide sustained energy without the crash of processed alternatives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="benefits-visual">
+                <div class="benefits-circle"></div>
+                <div class="benefits-center">
+                    <i class="fas fa-leaf"></i>
+                    <h3>100% Natural</h3>
+                </div>
+                <div class="floating-icons">
+                    <div class="float-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="float-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="float-icon"><i class="fas fa-spa"></i></div>
+                    <div class="float-icon"><i class="fas fa-bolt"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="process-header">
+            <div class="section-label reveal">
+                <span>Our Process</span>
+            </div>
+            <h2 class="section-title reveal">
+                From <span class="highlight">Hive</span> to Home
+            </h2>
+            <p class="about-text reveal">
+                Every drop of Keluluxe honey goes through a meticulous process to ensure 
+                you receive only the purest, most potent product.
+            </p>
+        </div>
+        <div class="process-timeline">
+            <div class="process-line"></div>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="step-icon">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4 class="step-title">Ethical Harvesting</h4>
+                    <p class="step-description">
+                        Our expert beekeepers carefully harvest honey from sustainable colonies 
+                        deep in the Malaysian rainforest.
+                    </p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-icon">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h4 class="step-title">Natural Filtration</h4>
+                    <p class="step-description">
+                        Honey is gently filtered using traditional methods to remove impurities 
+                        while preserving nutrients.
+                    </p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-icon">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h4 class="step-title">Quality Testing</h4>
+                    <p class="step-description">
+                        Every batch undergoes rigorous laboratory testing for purity, 
+                        potency, and authenticity certification.
+                    </p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-icon">
+                        <div class="step-number">4</div>
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h4 class="step-title">Premium Packaging</h4>
+                    <p class="step-description">
+                        Sealed in UV-protected glass jars to maintain freshness and 
+                        delivered straight to your doorstep.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-header">
+            <div class="section-label reveal">
+                <span>Testimonials</span>
+            </div>
+            <h2 class="section-title reveal">
+                What Our <span class="highlight">Customers</span> Say
+            </h2>
+        </div>
+        <div class="testimonials-slider reveal">
+            <div class="testimonials-track">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h4 class="author-name">Dr. Sarah Chen</h4>
+                            <p class="author-title">Nutritionist</p>
+                        </div>
+                        <div class="testimonial-text">
+                            <div class="testimonial-quote">"</div>
+                            <p>
+                                As a nutritionist, I'm very particular about what I recommend. 
+                                Keluluxe honey is exceptional - the purity and therapeutic 
+                                benefits are unmatched. My patients have seen remarkable 
+                                improvements in their overall health.
+                            </p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h4 class="author-name">Ahmad Rahman</h4>
+                            <p class="author-title">Loyal Customer</p>
+                        </div>
+                        <div class="testimonial-text">
+                            <div class="testimonial-quote">"</div>
+                            <p>
+                                I've been using Keluluxe for over 2 years now. The difference 
+                                in my energy levels and immune system is incredible. This is 
+                                the only honey I trust for my family. Worth every ringgit!
+                            </p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h4 class="author-name">Lisa Wong</h4>
+                            <p class="author-title">Wellness Blogger</p>
+                        </div>
+                        <div class="testimonial-text">
+                            <div class="testimonial-quote">"</div>
+                            <p>
+                                The packaging is luxurious, the taste is divine, and the 
+                                health benefits are real. Keluluxe has become an essential 
+                                part of my daily wellness routine. Highly recommended!
+                            </p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonials-nav">
+            <button class="nav-btn prev-btn"><i class="fas fa-arrow-left"></i></button>
+            <button class="nav-btn next-btn"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="testimonials-dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="contact">
+        <div class="newsletter-content">
+            <h2>Join the Keluluxe Family</h2>
+            <p>
+                Subscribe to receive exclusive offers, health tips, and be the first 
+                to know about our new products and limited editions.
+            </p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">🐝</div>
+                    <div class="logo-text">KELU<span>LUXE</span></div>
+                </a>
+                <p>
+                    Bringing you the finest Kelulut honey from the heart of Indonesia 
+                    rainforests. Pure, natural, and ethically harvested for your health and wellness.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61575621320344&rdid=gWoUgeeOoLuoHLPz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AajArn2W2%2F%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/keluluxe/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://api.whatsapp.com/send/?phone=6283826991386&text&type=phone_number&app_absent=0&utm_source=ig"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#process">Our Process</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns Policy</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Honey Lane, Indonesia, Bangka Belitung, Pangkalpinang, Indonesia 50450</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+62 838-2699-1386</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@keluluxe.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Keluluxe. All rights reserved. Crafted with <i class="fas fa-heart" style="color: var(--gold-primary);"></i> in Malaysia</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.preloader').classList.add('hidden');
+            }, 2000);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Reveal on Scroll
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target.toLocaleString() + '+';
+                        }
+                    };
+
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Testimonials Slider
+        const track = document.querySelector('.testimonials-track');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        const updateSlider = () => {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        };
+
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentSlide = parseInt(dot.getAttribute('data-index'));
+                updateSlider();
+            });
+        });
+
+        // Auto-slide
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 6000);
+
+        // Back to Top Button
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax Effect for Floating Elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            document.querySelectorAll('.particle').forEach((particle, index) => {
+                const speed = 0.5 + (index * 0.1);
+                particle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Newsletter Form
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our updates soon.`);
+            e.target.reset();
+        });
+
+        // Add to Cart Animation
+        document.querySelectorAll('.btn-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const originalText = this.textContent;
+                this.textContent = 'Added! ✓';
+                this.style.background = '#4CAF50';
+                this.style.borderColor = '#4CAF50';
+                this.style.color = 'white';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = '';
+                    this.style.borderColor = '';
+                    this.style.color = '';
+                }, 2000);
+            });
+        });
+
+        // Magnetic Effect for Buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+        });
+
+        // Image Lazy Loading with Animation
+        const images = document.querySelectorAll('.about-img img');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'scale(1)';
+                    imageObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        images.forEach(img => {
+            img.style.opacity = '0';
+            img.style.transform = 'scale(0.9)';
+            img.style.transition = 'all 0.8s ease';
+            imageObserver.observe(img);
+        });
+
+        // Tilt Effect for Product Cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        console.log('%c🐝 KELULUXE - Premium Kelulut Honey', 'font-size: 24px; color: #D4A574; font-weight: bold;');
+        console.log('%cCrafted with ❤️ for the finest honey experience', 'font-size: 14px; color: #888;');
+    </script>
+</body>
+</html>
